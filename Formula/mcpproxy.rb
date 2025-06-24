@@ -14,7 +14,14 @@ class Mcpproxy < Formula
     commit = `git rev-parse --short HEAD 2>/dev/null || echo "unknown"`.strip
     date = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
     
-    # Build binary with version injection (matching your build.sh)
+    # Set up Go module environment properly
+    ENV["GO111MODULE"] = "on"
+    ENV["GOPROXY"] = "direct"
+    
+    # Initialize go.mod if it doesn't exist or if there are module issues
+    system "go", "mod", "tidy"
+    
+    # Build binary with version injection and proper module support
     system "go", "build", 
            "-ldflags", "-X main.version=v#{version} -X main.commit=#{commit} -X main.date=#{date} -s -w",
            "-o", "mcpproxy", 
