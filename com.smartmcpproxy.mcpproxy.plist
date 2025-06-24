@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"\>
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.smartmcpproxy.mcpproxy</string>
+    <key>Program</key>
+    <string>/opt/homebrew/bin/mcpproxy</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/mcpproxy</string>
+        <string>--tray=true</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/mcpproxy.out</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/mcpproxy.err</string>
+</dict>
+</plist>
