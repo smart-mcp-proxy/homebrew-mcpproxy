@@ -1,8 +1,8 @@
 class Mcpproxy < Formula
   desc "Smart MCP Proxy - Intelligent tool discovery and proxying for Model Context Protocol servers"
   homepage "https://github.com/smart-mcp-proxy/mcpproxy-go"
-  url "https://github.com/smart-mcp-proxy/mcpproxy-go/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "e9bfd6d955213c0ca17536c8a493dfa8d614c0497fd42da0281f41238adc13ef"
+  url "https://github.com/smart-mcp-proxy/mcpproxy-go/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "d98e402bcde5e39559ee11c07552219db03570240dfa40f6e01dc853e8f69bdf"
   license "MIT"
   head "https://github.com/smart-mcp-proxy/mcpproxy-go.git"
 
