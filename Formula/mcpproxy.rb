@@ -1,15 +1,15 @@
 class Mcpproxy < Formula
   desc "Smart MCP Proxy - Intelligent tool discovery and proxying for Model Context Protocol servers"
   homepage "https://github.com/smart-mcp-proxy/mcpproxy-go"
-  url "https://github.com/smart-mcp-proxy/mcpproxy-go/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "2875db02e83e9996621a9df4608873252f3b464d439fab5188cc5812ce944670"
+  url "https://github.com/smart-mcp-proxy/mcpproxy-go/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "ccd7f2b83cf8e16f56f21c4e2cde18382baec80f7fc0888ba92eb2977486a148"
   license "MIT"
   head "https://github.com/smart-mcp-proxy/mcpproxy-go.git"
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X mcpproxy-go/cmd/mcpproxy.version=v0.5.2 -X main.version=v0.5.2", "-o", "mcpproxy", "./cmd/mcpproxy"
+    system "go", "build", "-ldflags", "-s -w -X mcpproxy-go/cmd/mcpproxy.version=v0.5.3 -X main.version=v0.5.3", "-o", "mcpproxy", "./cmd/mcpproxy"
     bin.install "mcpproxy"
   end
 
