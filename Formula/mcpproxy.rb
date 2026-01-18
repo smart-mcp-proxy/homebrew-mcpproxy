@@ -1,26 +1,26 @@
 class Mcpproxy < Formula
   desc "Smart MCP Proxy - Intelligent tool discovery and proxying for MCP servers"
   homepage "https://github.com/smart-mcp-proxy/mcpproxy-go"
-  version "0.15.0"
+  version "0.15.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.0/mcpproxy-0.15.0-darwin-arm64.tar.gz"
-      sha256 "ead698d92ac9b3dfc1d6489d49ec2a16c5338785a9e5109afaa8b3145ca073f7"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.1/mcpproxy-0.15.1-darwin-arm64.tar.gz"
+      sha256 "35c64a8ca939024d8674f1bed67cd24f7574f92f303c87cde43fd9d668eced01"
     else
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.0/mcpproxy-0.15.0-darwin-amd64.tar.gz"
-      sha256 "554ce740dbace742814caec6c03c7dcf4f7c3b7f37c28ed7ba09ffcfced635b1"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.1/mcpproxy-0.15.1-darwin-amd64.tar.gz"
+      sha256 "d307150094d780e8d4ee9fc3e94871418f4a8542958790c0bea4b63e3fcf8f72"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.0/mcpproxy-0.15.0-linux-arm64.tar.gz"
-      sha256 "5ac513493a197cbab821f2bdee01fe19b6e25188c6663207b8d04b7095705fe5"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.1/mcpproxy-0.15.1-linux-arm64.tar.gz"
+      sha256 "a05c81bb1091a1cf3a2122d7180aa6a24eab1a902fde5820d26b7548cb4e99af"
     else
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.0/mcpproxy-0.15.0-linux-amd64.tar.gz"
-      sha256 "79e1bbe2161c4c0bb334321ff64ccab72390b7042828b3a13ff0c4cd0620c0ef"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.15.1/mcpproxy-0.15.1-linux-amd64.tar.gz"
+      sha256 "9284406c6060fb59dcf48ffdaf558e9ed83a2489706099cb3beecef20f250e96"
     end
   end
 
