@@ -1,26 +1,26 @@
 class Mcpproxy < Formula
   desc "Smart MCP Proxy - Intelligent tool discovery and proxying for MCP servers"
   homepage "https://github.com/smart-mcp-proxy/mcpproxy-go"
-  version "0.22.0"
+  version "0.22.1-rc.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.0/mcpproxy-0.22.0-darwin-arm64.tar.gz"
-      sha256 "0b0bd55ab6999f93ba602aaa1a8368276a3b08436cba57e3133b346649bcca82"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.2/mcpproxy-0.22.1-rc.2-darwin-arm64.tar.gz"
+      sha256 "89abdef08a9f665c555b04f9eb0731de1bbf4a0b2fd050dfbe94444877e8ad24"
     else
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.0/mcpproxy-0.22.0-darwin-amd64.tar.gz"
-      sha256 "627161afccea2acc4bddc5e6ed7e39766453c3541422bc5e8be33730ec6bf412"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.2/mcpproxy-0.22.1-rc.2-darwin-amd64.tar.gz"
+      sha256 "ebd1265760da9546ca14bdd73da4c307274e455c14382282b04cb437bd7af4c7"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.0/mcpproxy-0.22.0-linux-arm64.tar.gz"
-      sha256 "bedeef90ea437a09ccca2786393254517d17d29ada050748545b8260fc2b2e23"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.2/mcpproxy-0.22.1-rc.2-linux-arm64.tar.gz"
+      sha256 "f9d6ab0b2cf6a647684ee7c17457584ede20d07b4c40a1d4f9ed2ba8292c52ed"
     else
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.0/mcpproxy-0.22.0-linux-amd64.tar.gz"
-      sha256 "c6d820e6b756604e8f56ec2ecffafb0b7a39af9f97248f83c030d27681cb0e18"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.2/mcpproxy-0.22.1-rc.2-linux-amd64.tar.gz"
+      sha256 "1abb7801e9838e89e24b6d60a0fb57fe1d5e28e982aef7263370ba76d08e316d"
     end
   end
 
