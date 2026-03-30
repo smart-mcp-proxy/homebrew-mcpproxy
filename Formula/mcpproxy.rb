@@ -1,26 +1,26 @@
 class Mcpproxy < Formula
   desc "Smart MCP Proxy - Intelligent tool discovery and proxying for MCP servers"
   homepage "https://github.com/smart-mcp-proxy/mcpproxy-go"
-  version "0.22.1-rc.4"
+  version "0.22.1-rc.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.4/mcpproxy-0.22.1-rc.4-darwin-arm64.tar.gz"
-      sha256 "d363e5c580ff6a9f4be3eedcf8a4d176d764a62c52b109ab85063fc987e67fd3"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.6/mcpproxy-0.22.1-rc.6-darwin-arm64.tar.gz"
+      sha256 "8379546e56a109fd7456c9cb2be852e1c6b53a4306b961d95838e42375bbe2d7"
     else
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.4/mcpproxy-0.22.1-rc.4-darwin-amd64.tar.gz"
-      sha256 "56374a55fdf2930df0dbc13990eb5056b840a1a6c20f9de9ce7dd76bbd2e614d"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.6/mcpproxy-0.22.1-rc.6-darwin-amd64.tar.gz"
+      sha256 "9eab8403fff11f5c435635af835973e433fd2a7a1cff2a08c8a97d53926da913"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.4/mcpproxy-0.22.1-rc.4-linux-arm64.tar.gz"
-      sha256 "9aecfed91cff93b59452b4023e5587fc7e868f2c4ba3720520b4a78cf03a9d62"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.6/mcpproxy-0.22.1-rc.6-linux-arm64.tar.gz"
+      sha256 "d85ccfc4d56fd0eb5c339c3b831e6262101f49606ae47f4a50048c06525ba130"
     else
-      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.4/mcpproxy-0.22.1-rc.4-linux-amd64.tar.gz"
-      sha256 "e50a6d20a16943a97fcb4371a7d05f67b71ceefbdc706f00cf0d91175f7d3fa7"
+      url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v0.22.1-rc.6/mcpproxy-0.22.1-rc.6-linux-amd64.tar.gz"
+      sha256 "6e3283fa010507906986681ecda85996174b388cfe28ac542633880a310f9d55"
     end
   end
 
