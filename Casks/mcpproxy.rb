@@ -10,16 +10,16 @@
 # For the headless CLI only, use: brew install mcpproxy
 
 cask "mcpproxy" do
-  version "0.26.2"
+  version "0.26.3"
 
   on_arm do
-    sha256 "f6fbe9078c96c0b28415c5c57b3d97471a1279cd44337823baaa8a8c0f16febf"
+    sha256 "5891cfdf1bcb32b42ac4c1d603501c45618215b93f8de8b2dd52fccfe25bdfec"
     url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-arm64-installer.dmg",
         verified: "github.com/smart-mcp-proxy/mcpproxy-go/"
   end
 
   on_intel do
-    sha256 "3588180e432446f06564b543365c7832d0ad47ac63f7fb71ee0aa60939dae97c"
+    sha256 "dfa8ea0545bfbbeb7578538e47ee933891a86e2a8c06dafaf83ee1d8e1252dae"
     url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-amd64-installer.dmg",
         verified: "github.com/smart-mcp-proxy/mcpproxy-go/"
   end
