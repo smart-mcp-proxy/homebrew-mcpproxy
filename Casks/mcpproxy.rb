@@ -43,7 +43,7 @@ cask "mcpproxy" do
     pkg "mcpproxy-#{version}-darwin-amd64.pkg"
   end
 
-  uninstall pkgutil: "com.smartmcpproxy.mcpproxy",
+  uninstall pkgutil: "com.smartmcpproxy.mcpproxy.pkg",
             launchctl: "com.smartmcpproxy.mcpproxy",
             delete: [
               "/usr/local/bin/mcpproxy",
