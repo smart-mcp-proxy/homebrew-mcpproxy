@@ -216,6 +216,47 @@ When new versions of mcpproxy are released, this formula needs to be updated:
    git push origin main
    ```
 
+### Updating the Cask
+
+The cask (`Casks/mcpproxy.rb`) installs the pre-built MCPProxy tray app (GUI)
+from the release DMGs. Unlike the formula it is **not** built from source and
+has no `test do` block, so `brew test` and `brew install --build-from-source`
+do **not** apply to it.
+
+When a new version of mcpproxy is released, update the cask as follows:
+
+1. **Get the new SHA256 for both DMGs** (arm64 and amd64):
+   ```bash
+   VERSION=X.X.X
+   for arch in arm64 amd64; do
+     curl -sL "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v${VERSION}/mcpproxy-${VERSION}-darwin-${arch}-installer.dmg" \
+       | shasum -a 256
+   done
+   ```
+
+2. **Update Casks/mcpproxy.rb**:
+   - Bump `version` to the new release
+   - Replace the `sha256` in the `on_arm` block (arm64 DMG) and the `sha256` in
+     the `on_intel` block (amd64 DMG)
+
+3. **Validate the cask** (casks have no `test do` block, so there is no
+   `brew test` step):
+   ```bash
+   # Lint (rubocop). Auto-fix correctable offenses with --fix:
+   brew style Casks/mcpproxy.rb
+   brew style --fix Casks/mcpproxy.rb
+
+   # Audit. `brew audit <path>` is disabled, so audit by tap name:
+   brew audit --cask --online smart-mcp-proxy/mcpproxy/mcpproxy
+   ```
+
+4. **Commit and push**:
+   ```bash
+   git add Casks/mcpproxy.rb
+   git commit -m "Update mcpproxy cask to vX.X.X"
+   git push origin main
+   ```
+
 ### Recommendations for mcpproxy Development
 
 To improve Homebrew compatibility, consider these enhancements to mcpproxy:

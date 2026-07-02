@@ -14,19 +14,26 @@ cask "mcpproxy" do
 
   on_arm do
     sha256 "36edfdb9187b4a56293baf1df3d556cc23152f36d20aaf90753133518c7cc5aa"
+
     url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-arm64-installer.dmg",
         verified: "github.com/smart-mcp-proxy/mcpproxy-go/"
   end
-
+  on_arm do
+    pkg "mcpproxy-#{version}-darwin-arm64.pkg"
+  end
   on_intel do
     sha256 "611142adcb43454a2751c7f33cfe9cc380e5e04f054a54ab04e6bd5abdeb0569"
+
     url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-amd64-installer.dmg",
         verified: "github.com/smart-mcp-proxy/mcpproxy-go/"
+  end
+  on_intel do
+    pkg "mcpproxy-#{version}-darwin-amd64.pkg"
   end
 
   name "MCPProxy"
   desc "Smart MCP proxy with intelligent tool discovery for AI agents"
-  homepage "https://mcpproxy.app"
+  homepage "https://mcpproxy.app/"
 
   livecheck do
     url :url
@@ -35,19 +42,9 @@ cask "mcpproxy" do
 
   depends_on macos: :monterey
 
-  on_arm do
-    pkg "mcpproxy-#{version}-darwin-arm64.pkg"
-  end
-
-  on_intel do
-    pkg "mcpproxy-#{version}-darwin-amd64.pkg"
-  end
-
-  uninstall pkgutil: "com.smartmcpproxy.mcpproxy.pkg",
-            launchctl: "com.smartmcpproxy.mcpproxy",
-            delete: [
-              "/usr/local/bin/mcpproxy",
-            ]
+  uninstall launchctl: "com.smartmcpproxy.mcpproxy",
+            pkgutil:   "com.smartmcpproxy.mcpproxy.pkg",
+            delete:    "/usr/local/bin/mcpproxy"
 
   zap trash: [
     "~/.mcpproxy",
