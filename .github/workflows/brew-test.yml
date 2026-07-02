@@ -30,7 +30,15 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Tap the checked-out repo
-        run: brew tap smart-mcp-proxy/mcpproxy "$GITHUB_WORKSPACE"
+        # Link the checkout into Homebrew's Taps dir so `brew style`/`brew audit`
+        # operate on the PR's files. `brew tap <name> <path>` is rejected here
+        # because brew resolves the canonical GitHub remote for a named tap.
+        run: |
+          TAP_DIR="$(brew --repository)/Library/Taps/smart-mcp-proxy/homebrew-mcpproxy"
+          rm -rf "$TAP_DIR"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew tap  # sanity: list taps
 
       - name: brew style (cask + formula)
         run: brew style smart-mcp-proxy/mcpproxy
