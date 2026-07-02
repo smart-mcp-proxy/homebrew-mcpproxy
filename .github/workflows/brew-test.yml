@@ -1,0 +1,50 @@
+name: brew style + audit
+
+# Lightweight tap CI: run `brew style` and `brew audit` on the cask and
+# formula so cask/formula changes are machine-verified on every PR/push.
+# Deliberately NOT the full `brew test-bot` bottling pipeline — no install,
+# no bottling. Casks are macOS-only, so this runs on macos-latest.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Cancel superseded runs on the same ref to save runner minutes.
+concurrency:
+  group: brew-test-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  brew-style-audit:
+    runs-on: macos-latest
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap the checked-out repo
+        # Link the checkout into Homebrew's Taps dir so `brew style`/`brew audit`
+        # operate on the PR's files. `brew tap <name> <path>` is rejected here
+        # because brew resolves the canonical GitHub remote for a named tap.
+        run: |
+          TAP_DIR="$(brew --repository)/Library/Taps/smart-mcp-proxy/homebrew-mcpproxy"
+          rm -rf "$TAP_DIR"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew tap  # sanity: list taps
+
+      - name: brew style (cask + formula)
+        run: brew style smart-mcp-proxy/mcpproxy
+
+      - name: brew audit (cask, online url/sha256)
+        run: brew audit --tap smart-mcp-proxy/mcpproxy --cask --online mcpproxy
+
+      - name: brew audit (formula, online url/sha256)
+        run: brew audit --tap smart-mcp-proxy/mcpproxy --formula --online mcpproxy
