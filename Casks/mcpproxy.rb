@@ -15,8 +15,7 @@ cask "mcpproxy" do
   on_arm do
     sha256 "fdeabc6097564aee2a17bed13efe02463900d42da8e896d214d8980057457fc6"
 
-    url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-arm64-installer.dmg",
-        verified: "github.com/smart-mcp-proxy/mcpproxy-go/"
+    url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-arm64-installer.dmg"
   end
   on_arm do
     pkg "mcpproxy-#{version}-darwin-arm64.pkg"
@@ -24,8 +23,7 @@ cask "mcpproxy" do
   on_intel do
     sha256 "b74068c737b02617c4eedc0015d3cd57533a06d8ec63cdb78df7d25d12171343"
 
-    url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-amd64-installer.dmg",
-        verified: "github.com/smart-mcp-proxy/mcpproxy-go/"
+    url "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/download/v#{version}/mcpproxy-#{version}-darwin-amd64-installer.dmg"
   end
   on_intel do
     pkg "mcpproxy-#{version}-darwin-amd64.pkg"
