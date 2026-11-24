@@ -41,6 +41,7 @@ cask "mcpproxy" do
   depends_on macos: :monterey
 
   uninstall launchctl: "com.smartmcpproxy.mcpproxy",
+            quit:      "com.smartmcpproxy.mcpproxy",
             pkgutil:   "com.smartmcpproxy.mcpproxy.pkg",
             delete:    "/usr/local/bin/mcpproxy"
 
